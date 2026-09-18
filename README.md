@@ -1,4 +1,4 @@
-# AI Recruiting Workspace — The Sourcing Refinement Loop
+# FLEXIPLE - AI Recruiting Workspace — The Sourcing Refinement Loop 
 
 A full-stack prototype of Flexiple’s AI recruiter sourcing workflow. The application converts a recruiter’s natural-language hiring requirement into structured filters and a subjective fit rubric, searches a local candidate dataset, ranks the matching candidates, and supports recruiter-driven refinement before freezing the shortlist.
 
