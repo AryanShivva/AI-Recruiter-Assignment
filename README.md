@@ -2,6 +2,9 @@
 
 A full-stack prototype of Flexiple’s AI recruiter sourcing workflow. The application converts a recruiter’s natural-language hiring requirement into structured filters and a subjective fit rubric, searches a local candidate dataset, ranks the matching candidates, and supports recruiter-driven refinement before freezing the shortlist.
 
+# Loom Walkthrough : [Watch the Loom Demo](https://www.loom.com/share/06f554fa3a3043bbb0419398d556320d)
+
+
 <img width="700" alt="Initial Search" src="https://github.com/user-attachments/assets/914daafc-d67d-4ed3-be8a-0b8551c44ca8" />
 
 <img width="700" alt="Candidate Profiles" src="https://github.com/user-attachments/assets/c0aa3111-2648-4793-9047-7c59a9ccdff2" />
