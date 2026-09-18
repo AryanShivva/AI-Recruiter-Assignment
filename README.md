@@ -2,6 +2,18 @@
 
 A full-stack prototype of Flexiple’s AI recruiter sourcing workflow. The application converts a recruiter’s natural-language hiring requirement into structured filters and a subjective fit rubric, searches a local candidate dataset, ranks the matching candidates, and supports recruiter-driven refinement before freezing the shortlist.
 
+<img width="700" alt="Initial Search" src="https://github.com/user-attachments/assets/914daafc-d67d-4ed3-be8a-0b8551c44ca8" />
+
+<img width="700" alt="Candidate Profiles" src="https://github.com/user-attachments/assets/c0aa3111-2648-4793-9047-7c59a9ccdff2" />
+
+<img width="700" alt="Refinement Results" src="https://github.com/user-attachments/assets/98ea3ddc-a18a-4253-95c1-c4a8f8657ece" />
+
+<img width="700" alt="Final Shortlist" src="https://github.com/user-attachments/assets/33b71c8c-6b54-41fa-96da-a50718ec8ee9" />
+
+
+
+
+
 ## Assignment
 
 This project was built for the **Flexiple Engineering Challenge: The Sourcing Refinement Loop**.
