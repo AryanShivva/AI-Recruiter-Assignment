@@ -191,90 +191,47 @@ http://localhost:5173
 
 ## Design and Engineering Decisions
 
-### What I prioritised
+### What I Prioritised
 
-- A complete end-to-end sourcing loop instead of isolated features.
-- Clear visibility of the current filters and subjective rubric.
-- A simple recruiter workflow with minimal interaction friction.
-- Showing a maximum of five profiles at a time to match the assignment’s intended experience.
-- Keeping the candidate dataset local and easy to inspect.
-- Separating objective filtering from LLM-based scoring.
-- Providing user-facing loading and error states.
+- Built an end-to-end sourcing refinement loop for a single search session.
+- Converted natural-language requirements into structured objective filters and a subjective fit rubric using Gemini.
+- Applied objective filters to the supplied local candidate dataset.
+- Used LLM-based scoring to rank matching candidate profiles.
+- Implemented recruiter feedback and iterative refinement.
+- Displayed up to five candidate profiles with explanations based on actual profile details.
+- Added loading, error, and empty-result states.
+- Implemented shortlist freezing with final filters, rubric, and ranked candidates.
 
-### What I cut
+### Technical Decisions
 
-- Authentication and multiple recruiter roles.
-- Persistent storage and search history across sessions.
-- Integration with a real talent database.
-- Advanced candidate pagination and large-scale search infrastructure.
-- Complex analytics dashboards.
-- A full conversational history interface.
+- **Frontend:** React for a clear and interactive recruiter experience.
+- **Backend:** FastAPI for API orchestration and search logic.
+- **LLM:** Gemini API for filter generation, rubric creation, candidate scoring, and refinement.
+- **Data:** Local JSON dataset supplied for the assignment.
+- **Security:** API keys are stored in environment variables and excluded from version control.
 
-These features were excluded to stay within the assignment’s three-hour time box and keep the implementation focused on the sourcing refinement loop.
+### Scope Decisions
 
-### Why these decisions
+The implementation focuses on the core sourcing refinement workflow within the three-hour timebox. Authentication, multiple recruiter roles, persistent search history, and production-scale talent database integration were kept outside the scope of this assignment.
 
-The assignment evaluates the quality of the sourcing loop rather than the number of additional features. Therefore, the implementation focuses on the main user journey: requirement → filters and rubric → candidate results → recruiter feedback → refinement → freeze.
+### Error Handling
 
-## Error and Recovery Handling
+The application provides user-facing feedback for:
 
-The frontend provides user-facing feedback for common failure cases, including:
-
-- Empty hiring requirements.
-- Requirement parsing errors.
-- Candidate filtering errors.
-- Candidate scoring errors.
+- Empty or invalid hiring requirements.
+- LLM and API failures.
+- Candidate filtering and scoring errors.
 - Refinement errors.
-- Backend/API failures.
 - Empty search results.
 
-If a request fails, verify:
+### LLM Prompts
 
-1. The backend is running.
-2. The Gemini API key is configured correctly.
-3. The required Python dependencies are installed.
-4. The frontend is calling the correct backend URL.
-5. The API has not exceeded its rate limit.
+The prompts are maintained in the repository and support:
 
-## Prompts
-
-The LLM prompts are maintained in the backend/repository so that they can be reviewed and improved independently of the frontend.
-
-The prompts are responsible for:
-
-- Extracting structured objective filters.
-- Generating the subjective fit rubric.
-- Scoring candidate profiles against the rubric.
-- Updating the filters and rubric based on recruiter feedback.
-
-## Security Notes
-
-- Store `GEMINI_API_KEY` only in an environment variable.
-- Do not commit `.env`, credentials, or API keys.
-- Do not expose the API key in frontend code.
-- The supplied candidate profiles are fictional assignment data.
-- Authentication and persistent user accounts are intentionally outside the scope.
-
-## Scope Limitations
-
-- The application uses the supplied local sample dataset instead of a real 98-million-person talent map.
-- The search state is designed for a single session.
-- Candidate data is not persisted between sessions.
-- LLM output quality depends on API availability and model responses.
-- The prototype is not intended for production-scale recruitment infrastructure.
-
-## Submission Checklist
-
-- [ ] Repository is accessible and contains the source code.
-- [ ] README includes setup instructions and API key variable name.
-- [ ] `.env` is excluded using `.gitignore`.
-- [ ] LLM prompts are included in the repository.
-- [ ] Backend and frontend run locally.
-- [ ] Free-text search and candidate ranking work.
-- [ ] At least one refinement round works.
-- [ ] Freeze shortlist works.
-- [ ] Loom walkthrough demonstrates the complete loop.
-- [ ] Loom walkthrough includes a failure or recovery scenario.
+- Structured objective filter generation.
+- Subjective fit rubric generation.
+- Candidate scoring and ranking.
+- Filter and rubric refinement based on recruiter feedback.
 
 ## Author
 
